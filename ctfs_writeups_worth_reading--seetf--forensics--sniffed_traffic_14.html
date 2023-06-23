@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>sniffed traffic</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>sniffed traffic</h1><br/><p>this had a wireshark file in it , we use it to see that what kind of data was transferred, </p><p>so we first look at the protocol hierarchy and look at the protocols being used,</p><p>the  juicy prt is from http where we see that a GET request is made to get a certain file and look at the file content , the file content has PZ in start, means it&#39;s a zip file</p><p>we look the file in the raw format and cpy it&#39;s content, to a new file and name it with .zip extension</p><p></p><p>unzip it, you&#39;ll find a stuff file that is there that requires a password but how do we crack it?</p><p>I used tools , didn&#39;t work,</p><p></p><p>then I realised there&#39;s a field in the protocol hierarchy for data looking into that we get to know that there&#39;s a convo going on on some kind of passwd </p><p>boom! password was there</p><p></p><p>after unzipping we found the file that was gibbersh , using the strings command , got to know that it was containing a word called flag</p><p>command was:</p><p>&quot;strings stuff&quot;</p><p></p><p>then used a forensic tool callled:</p><p>foremost that is used to output the bin file into zipped whole complte file, after that to unzip it still required a password</p><p>this time while using brute forcer , the passwd was john, got the flag</p></div>
+</body>
+</html>

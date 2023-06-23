@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>mongod</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>mongod</h1><br/><p>we start by pinging the machine so that  to see whether it is reachable or not , then , the first question is that how many tcp ports are open , most of the time people do only one scan or they forget there&#39;s nmap and in which there&#39;s this flag called -PS and -PA for tcp syn ping and tcp ack so that there may be filtered ports and they also be scanned </p><p></p><p>remember we can get from ping what services are running on the systems , sometimes scan doesn&#39;t gives the results</p><p></p><p>we start for scanning all ports: nmap -p- -sV &lt;ip&gt; , thus getting port services and their versions</p><p></p><p>from that we get 2 as an answer</p><p></p><p>mongodb is NOSQL database</p><p></p><p>to activate mongo shell use: mongo command</p><p></p><p>to show all the databases in the mongodb: use: show dbs</p><p></p><p>to show all the collections in a DB : show collections</p><p></p><p><h3>command used for dumping the content of all the documents within the collection named flag in a format that is easy to read</h3>: db.flag.find().pretty()</p><p>syntax: db.&lt;collection_name&gt;.find().pretty()</p><p></p><p></p><p>we get the flag , for more info check the walkthrough -&gt; siddh -&gt; others -&gt; htb -&gt; mongod</p><p>1b6e6fb359e7c40241b6d431427ba6ea</p></div>
+</body>
+</html>

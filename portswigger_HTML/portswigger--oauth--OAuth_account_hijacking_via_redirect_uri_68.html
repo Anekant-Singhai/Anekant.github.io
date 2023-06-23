@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>OAuth account hijacking via redirect_uri</title>
+  <meta name="generator" content="CherryTree">
+  <link rel="stylesheet" href="res/styles4.css" type="text/css" />
+</head>
+<body>
+<div class='page'><h1 class='title'>OAuth account hijacking via redirect_uri</h1><br/><p>so when we look at the oauth requests , we see that the request has a header called “redirect uri&quot; that tells the oauth server to where to send the auth code , we can setup the server that can take request </p><p>and we redirect it to the server we setup, we can then send whatever we need to show the client in response and steal the code of other user and finally we can use that code to log into any user id</p><p></p><p></p><p>how to prevent:</p><p><h3>More secure authorization servers will require a </h3><code>redirect_uri</code><h3> parameter to be sent when exchanging the code as well. The server can then check whether this matches the one it received in the initial authorization request and reject the exchange if not. As this happens in server-to-server requests via a secure back-channel, the attacker is not able to control this second </h3><code>redirect_uri</code><h3> parameter.</h3></p></div>
+</body>
+</html>

@@ -1,1 +1,0 @@
-### I am currently developing a website that showcases my work, including exploits and walkthroughs from the past few months. The content some is available in HTML and some in Markdown formats. To access it, kindly download the repository and explore the materials. I am actively working on completing the website and will update it soon. Thank you for your understanding.
